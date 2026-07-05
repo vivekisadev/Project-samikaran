@@ -59,16 +59,22 @@ app.get('/api/health', (req, res) => {
 });
 
 // Routes
-app.use('/api/contact', contactRoutes);
-app.use('/api/payment', paymentRoutes);
-app.use('/api/admin', adminRoutes);
-app.use('/api/projects', projectRoutes);
-app.use('/api/settings', settingsRoutes);
-app.use('/api/media', mediaRoutes);
-app.use('/api/subscribers', subscriberRoutes);
-app.use('/api/reports', reportRoutes);
-app.use('/api/announcements', announcementRoutes);
-app.use('/api/testimonials', testimonialRoutes);
+const mountRoutes = (prefix = '') => {
+  app.use(`${prefix}/contact`, contactRoutes);
+  app.use(`${prefix}/payment`, paymentRoutes);
+  app.use(`${prefix}/admin`, adminRoutes);
+  app.use(`${prefix}/projects`, projectRoutes);
+  app.use(`${prefix}/settings`, settingsRoutes);
+  app.use(`${prefix}/media`, mediaRoutes);
+  app.use(`${prefix}/subscribers`, subscriberRoutes);
+  app.use(`${prefix}/reports`, reportRoutes);
+  app.use(`${prefix}/announcements`, announcementRoutes);
+  app.use(`${prefix}/testimonials`, testimonialRoutes);
+};
+
+mountRoutes('/api');
+// Mount without /api prefix just in case Vercel rewrites strip the prefix when routing to the backend service
+mountRoutes('');
 
 // Serve Frontend Static Files
 if (!process.env.VERCEL) {
