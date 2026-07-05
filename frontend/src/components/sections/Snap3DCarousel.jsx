@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Calendar } from 'lucide-react';
 
 const Snap3DCarousel = ({ items = [], onImageClick }) => {
-  if (!items || items.length === 0) return null;
+  const safeItems = items || [];
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -14,25 +14,28 @@ const Snap3DCarousel = ({ items = [], onImageClick }) => {
     if (isHovered) return;
     
     const interval = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % items.length);
+      if (safeItems.length === 0) return;
+      setActiveIndex((current) => (current + 1) % safeItems.length);
     }, 2000); // Change slide every 2 seconds
     
     return () => clearInterval(interval);
-  }, [items.length, isHovered]);
+  }, [safeItems.length, isHovered]);
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % items.length);
+    if (safeItems.length === 0) return;
+    setActiveIndex((prev) => (prev + 1) % safeItems.length);
   };
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
+    if (safeItems.length === 0) return;
+    setActiveIndex((prev) => (prev - 1 + safeItems.length) % safeItems.length);
   };
 
   const getCardStyle = (index) => {
     // Calculate shortest distance in a circular array
     let distance = index - activeIndex;
-    if (distance > items.length / 2) distance -= items.length;
-    if (distance < -items.length / 2) distance += items.length;
+    if (distance > safeItems.length / 2) distance -= safeItems.length;
+    if (distance < -safeItems.length / 2) distance += safeItems.length;
 
     const absDistance = Math.abs(distance);
     
@@ -88,7 +91,7 @@ const Snap3DCarousel = ({ items = [], onImageClick }) => {
     };
   };
 
-  const activeItem = items[activeIndex];
+  const activeItem = safeItems.length > 0 ? safeItems[activeIndex] : null;
 
   return (
     <div 
@@ -119,7 +122,7 @@ const Snap3DCarousel = ({ items = [], onImageClick }) => {
         </button>
 
         <div className="relative flex items-center justify-center w-full h-[500px] perspective-1000">
-          {items.map((item, index) => {
+          {safeItems.map((item, index) => {
             const { scale, opacity, x, zIndex, width, height } = getCardStyle(index);
             const isActive = index === activeIndex;
 
