@@ -15,7 +15,7 @@ const Snap3DCarousel = ({ items = [], onImageClick }) => {
     
     const interval = setInterval(() => {
       setActiveIndex((current) => (current + 1) % items.length);
-    }, 3000); // Change slide every 3 seconds
+    }, 2000); // Change slide every 2 seconds
     
     return () => clearInterval(interval);
   }, [items.length, isHovered]);
@@ -135,7 +135,7 @@ const Snap3DCarousel = ({ items = [], onImageClick }) => {
                 zIndex
               }}
               transition={{
-                duration: 0.6,
+                duration: 0.4,
                 ease: [0.25, 1, 0.5, 1] // Super smooth cubic bezier
               }}
               style={{
