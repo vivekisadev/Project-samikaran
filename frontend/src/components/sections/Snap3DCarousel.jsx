@@ -129,7 +129,7 @@ const Snap3DCarousel = ({ items = [], onImageClick }) => {
             return (
               <motion.div
                 key={item._id || index}
-                className="absolute cursor-pointer rounded-sm overflow-hidden shadow-2xl"
+                className="absolute cursor-pointer rounded-sm overflow-hidden shadow-2xl group"
               initial={false}
               animate={{
                 scale,
@@ -157,9 +157,9 @@ const Snap3DCarousel = ({ items = [], onImageClick }) => {
             >
               {/* Image */}
               <img 
-                src={item.mainImage || 'https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1920&auto=format&fit=crop'} 
-                alt={item.title} 
-                className="w-full h-full object-cover transition-transform duration-1000 ease-out hover:scale-105"
+                src={item.mainImage || item.url || item.image || item.image_url || 'https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1920&auto=format&fit=crop'} 
+                alt={item.title || 'Playbook Moment'} 
+                className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
               />
 
             </motion.div>
