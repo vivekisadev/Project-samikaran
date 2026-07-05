@@ -92,38 +92,41 @@ const Snap3DCarousel = ({ items = [], onImageClick }) => {
 
   return (
     <div 
-      className="relative w-full overflow-hidden bg-primary py-24 min-h-[90vh] flex flex-col justify-center items-center font-mono"
+      className="relative w-full overflow-hidden bg-primary py-24 min-h-[90vh] flex flex-col justify-center items-center font-sans"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       
-      {/* Dynamic Header based on active item (like the Framer example) */}
-      <div className="absolute top-16 text-center z-10 w-full px-4">
-        <motion.div 
-          key={`header-${activeIndex}`}
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="text-yellow-400/80 font-bold uppercase tracking-[0.2em] text-xs mb-2 block">
-            {activeItem?.type || 'Our Playbook'}
-          </div>
-          <h2 className="text-xl font-extrabold text-white tracking-widest uppercase">
-            {activeItem?.title || 'Moments'}
-          </h2>
-        </motion.div>
+      {/* Static Section Header */}
+      <div className="text-center px-4 z-10 mb-8">
+        <div className="text-yellow-400 font-bold uppercase tracking-[0.3em] text-sm mb-3 block">
+          Our Playbook
+        </div>
+        <h2 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight">
+          Moments That Define Us
+        </h2>
       </div>
 
-      {/* 3D Snap Track */}
-      <div className="relative flex items-center justify-center w-full h-[500px] perspective-1000 mt-12">
-        {items.map((item, index) => {
-          const { scale, opacity, x, zIndex, width, height } = getCardStyle(index);
-          const isActive = index === activeIndex;
+      {/* 3D Snap Track Container */}
+      <div className="relative w-full max-w-[1200px] flex items-center justify-center mt-12">
+        
+        {/* Left Button */}
+        <button 
+          onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+          className="absolute left-4 md:left-12 z-[70] p-4 bg-black/50 hover:bg-yellow-400 text-white hover:text-black rounded-full backdrop-blur-md transition-colors"
+        >
+          <ArrowRight size={24} className="rotate-180" />
+        </button>
 
-          return (
-            <motion.div
-              key={item._id || index}
-              className="absolute cursor-pointer rounded-sm overflow-hidden shadow-2xl"
+        <div className="relative flex items-center justify-center w-full h-[500px] perspective-1000">
+          {items.map((item, index) => {
+            const { scale, opacity, x, zIndex, width, height } = getCardStyle(index);
+            const isActive = index === activeIndex;
+
+            return (
+              <motion.div
+                key={item._id || index}
+                className="absolute cursor-pointer rounded-sm overflow-hidden shadow-2xl"
               initial={false}
               animate={{
                 scale,
@@ -172,6 +175,15 @@ const Snap3DCarousel = ({ items = [], onImageClick }) => {
           </div>
         </div>
       </div>
+
+      {/* Right Button */}
+      <button 
+        onClick={(e) => { e.stopPropagation(); handleNext(); }}
+        className="absolute right-4 md:right-12 z-[70] p-4 bg-black/50 hover:bg-yellow-400 text-white hover:text-black rounded-full backdrop-blur-md transition-colors"
+      >
+        <ArrowRight size={24} />
+      </button>
+    </div>
 
       {/* Dynamic Footer based on active item */}
       <div className="absolute bottom-16 text-center z-10 w-full px-4">
