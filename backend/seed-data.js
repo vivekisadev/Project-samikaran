@@ -64,41 +64,52 @@ const testimonials = [
 const mediaImages = [
   {
     title: "Workshop Interaction",
-    url: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop",
-    type: "image",
-    category: "workshop"
-  },
-  {
-    title: "Group Activity",
-    url: "https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=2070&auto=format&fit=crop",
-    type: "image",
-    category: "workshop"
+    mainImage: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop",
+    type: "Workshop",
+    category: "workshop",
+    description: "An engaging workshop session where students actively participate in group discussions.",
+    gallery: [
+      "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=2070&auto=format&fit=crop"
+    ]
   },
   {
     title: "Classroom Learning",
-    url: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2132&auto=format&fit=crop",
-    type: "image",
-    category: "education"
+    mainImage: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2132&auto=format&fit=crop",
+    type: "Education",
+    category: "education",
+    description: "Dedicated learning environment focusing on essential skills.",
+    gallery: [
+      "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2132&auto=format&fit=crop"
+    ]
   },
   {
     title: "Mentorship Session",
-    url: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop",
-    type: "image",
-    category: "mentorship"
+    mainImage: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop",
+    type: "Mentorship",
+    category: "mentorship",
+    description: "One-on-one mentorship session providing career guidance.",
+    gallery: [
+      "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop"
+    ]
   },
   {
     title: "Community Outreach",
-    url: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070&auto=format&fit=crop",
-    type: "image",
-    category: "community"
+    mainImage: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070&auto=format&fit=crop",
+    type: "Outreach",
+    category: "community",
+    description: "Connecting with the local community to spread awareness.",
+    gallery: [
+      "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070&auto=format&fit=crop"
+    ]
   }
 ];
 
 async function seed() {
   console.log('Seeding Testimonials...');
   
-  // Clean existing logic (optional)
-  // await supabase.from('testimonials').delete().neq('id', '00000000-0000-0000-0000-000000000000');
+  // Clean existing data
+  await supabase.from('testimonials').delete().neq('id', '00000000-0000-0000-0000-000000000000');
   
   for (const t of testimonials) {
     const { error } = await supabase.from('testimonials').insert([t]);
@@ -110,6 +121,10 @@ async function seed() {
   }
 
   console.log('\nSeeding Media Images for Carousel...');
+  
+  // Clean existing media
+  await supabase.from('media').delete().neq('id', '00000000-0000-0000-0000-000000000000');
+
   for (const m of mediaImages) {
     const { error } = await supabase.from('media').insert([m]);
     if (error) {
