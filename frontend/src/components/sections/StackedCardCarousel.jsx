@@ -105,9 +105,9 @@ const StackedCardCarousel = ({ items = [], onImageClick }) => {
       ref={containerRef} 
       // Height matches the exact number of segments we need.
       style={{ height: `${items.length * 100}vh` }} 
-      className="relative w-full bg-[#18483B]"
+      className="relative w-full bg-primary"
     >
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden z-[100] bg-[#18483B]">
+      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden z-[100] bg-primary">
         
         {/* Background Decorative Elements */}
         <div className="absolute top-20 left-10 opacity-30">

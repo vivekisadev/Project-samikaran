@@ -101,7 +101,7 @@ const HeroSection = () => {
         <div className="hero-element flex gap-4 md:gap-6 flex-wrap justify-center">
           <Link 
             to="/donate" 
-            className="bg-[#18483B] text-white px-10 py-4 rounded-full font-bold text-sm tracking-widest uppercase hover:scale-105 hover:bg-[#0f2d25] transition-all shadow-lg"
+            className="bg-primary text-white px-10 py-4 rounded-full font-bold text-sm tracking-widest uppercase hover:scale-105 hover:bg-primary/90 transition-all shadow-lg"
           >
             Donate
           </Link>

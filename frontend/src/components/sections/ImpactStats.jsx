@@ -50,7 +50,7 @@ const AnimatedCounter = ({ text }) => {
                 displayVal = currentVal;
             }
             // Inject the number, and apply orange color specifically to the suffix (+ sign)
-            nodeRef.current.innerHTML = `${displayVal}<span class="text-[#18483B]">${suffixPart}</span>`;
+            nodeRef.current.innerHTML = `${displayVal}<span class="text-primary">${suffixPart}</span>`;
           }
         }
       });
@@ -74,7 +74,7 @@ const ImpactStats = ({ stats }) => {
             viewport={{ once: true }}
             className="text-5xl md:text-7xl font-black text-gray-900 mb-6 uppercase tracking-tight"
           >
-            OUR <span className="text-[#18483B]">IMPACT</span> IN ACTION
+            OUR <span className="text-primary">IMPACT</span> IN ACTION
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
