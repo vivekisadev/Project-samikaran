@@ -60,8 +60,8 @@ const VelocityCarousel = ({ items = [], onImageClick }) => {
                 layout
                 className={`relative flex-shrink-0 cursor-pointer overflow-hidden rounded-3xl transition-all duration-500 ease-out`}
                 style={{
-                  width: isCardHovered ? '500px' : '320px',
-                  height: '450px',
+                  width: isCardHovered ? '700px' : '480px',
+                  height: isCardHovered ? '380px' : '300px',
                   opacity: isAnyHovered && !isCardHovered ? 0.4 : 1,
                   filter: isAnyHovered && !isCardHovered ? 'blur(2px) grayscale(50%)' : 'blur(0px) grayscale(0%)',
                   zIndex: isCardHovered ? 20 : 10,
