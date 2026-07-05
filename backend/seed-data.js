@@ -102,6 +102,36 @@ const mediaImages = [
     gallery: [
       "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070&auto=format&fit=crop"
     ]
+  },
+  {
+    title: "Creative Arts",
+    mainImage: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2071&auto=format&fit=crop",
+    type: "Workshop",
+    category: "workshop",
+    description: "Encouraging creativity and self-expression through arts.",
+    gallery: [
+      "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2071&auto=format&fit=crop"
+    ]
+  },
+  {
+    title: "Team Building",
+    mainImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
+    type: "Activity",
+    category: "community",
+    description: "Fostering teamwork and collaboration among students.",
+    gallery: [
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
+    ]
+  },
+  {
+    title: "Digital Literacy",
+    mainImage: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
+    type: "Education",
+    category: "education",
+    description: "Equipping individuals with essential digital skills for the modern world.",
+    gallery: [
+      "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop"
+    ]
   }
 ];
 
