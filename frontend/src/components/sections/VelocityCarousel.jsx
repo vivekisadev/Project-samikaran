@@ -57,13 +57,15 @@ const VelocityCarousel = ({ items = [], onImageClick }) => {
               <div
                 key={`${item._id || item.id}-${idx}`}
                 onMouseEnter={() => setHoveredIndex(idx)}
-                className={`relative flex-shrink-0 cursor-pointer overflow-hidden rounded-3xl transition-all duration-500 ease-out`}
+                className={`relative flex-shrink-0 cursor-pointer overflow-hidden rounded-[2.5rem] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] border border-white/10 shadow-2xl bg-black/20`}
                 style={{
                   width: '650px',
                   height: '420px',
-                  opacity: isAnyHovered && !isCardHovered ? 0.4 : 1,
-                  filter: isAnyHovered && !isCardHovered ? 'blur(2px) grayscale(50%)' : 'blur(0px) grayscale(0%)',
-                  zIndex: isCardHovered ? 20 : 10
+                  opacity: isAnyHovered && !isCardHovered ? 0.3 : 1,
+                  filter: isAnyHovered && !isCardHovered ? 'blur(4px) grayscale(70%)' : 'blur(0px) grayscale(0%)',
+                  zIndex: isCardHovered ? 20 : 10,
+                  transform: isCardHovered ? 'translateY(-10px)' : 'translateY(0px)',
+                  boxShadow: isCardHovered ? '0 25px 50px -12px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(255, 255, 255, 0.05)' : '0 10px 30px -5px rgba(0, 0, 0, 0.5)'
                 }}
                 onClick={() => onImageClick && onImageClick(item, idx % items.length)}
               >
@@ -72,46 +74,47 @@ const VelocityCarousel = ({ items = [], onImageClick }) => {
                   <img 
                     src={item.mainImage || 'https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1920&auto=format&fit=crop'} 
                     alt={item.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-[1000ms] ease-out hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/95 via-[#0a0a0a]/40 to-transparent mix-blend-multiply" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 </div>
 
                 {/* Content */}
-                <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end text-white h-full pointer-events-none">
+                <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end text-white h-full pointer-events-none">
                   <div className="mb-auto">
-                    <span className="bg-primary/90 backdrop-blur-md text-white text-xs font-black px-3 py-1.5 rounded-full uppercase tracking-wider inline-block mb-4 shadow-lg border border-white/20">
+                    <span className="bg-white/10 backdrop-blur-xl text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-[0.2em] inline-block mb-4 shadow-lg border border-white/20">
                       {item.type || 'Media'}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="text-2xl font-bold mb-2 leading-tight drop-shadow-md">
+                    <h3 className="text-3xl font-extrabold mb-3 leading-tight tracking-tight text-white/95">
                       {item.title}
                     </h3>
                     
                     {/* Expandable details */}
                     <div 
-                      className="overflow-hidden transition-all duration-500 ease-out"
+                      className="overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
                       style={{
-                        maxHeight: isCardHovered ? '150px' : '0px',
+                        maxHeight: isCardHovered ? '200px' : '0px',
                         opacity: isCardHovered ? 1 : 0,
-                        transform: isCardHovered ? 'translateY(0)' : 'translateY(10px)'
+                        transform: isCardHovered ? 'translateY(0)' : 'translateY(20px)'
                       }}
                     >
-                      <p className="text-gray-200 text-sm mb-4 line-clamp-3 leading-relaxed">
+                      <p className="text-white/70 text-sm mb-5 line-clamp-3 leading-relaxed font-medium">
                         {item.description}
                       </p>
                       
                       {item.date && (
-                        <div className="flex items-center gap-2 text-xs font-semibold text-gray-300 mb-4">
-                          <Calendar size={14} className="text-yellow-400" />
+                        <div className="flex items-center gap-2 text-xs font-bold text-white/50 mb-5 tracking-wide uppercase">
+                          <Calendar size={14} className="text-yellow-400/80" />
                           {new Date(item.date).toLocaleDateString(undefined, { dateStyle: 'medium' })}
                         </div>
                       )}
                       
-                      <div className="flex items-center gap-2 text-yellow-400 font-bold text-sm tracking-wide">
-                        View Details <ArrowRight size={14} />
+                      <div className="flex items-center gap-2 text-yellow-400 font-extrabold text-sm tracking-widest uppercase transition-colors">
+                        View Details <ArrowRight size={16} />
                       </div>
                     </div>
                   </div>
