@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "name": "Ravi Kumar",
+    "role": "Student, Baat-Cheet",
+    "text": "The Baat-Cheet program completely transformed my confidence. I used to be terrified of speaking up, but now I feel like my voice matters.",
+    "avatar": "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+    "is_active": true
+  },
+  {
+    "id": "2",
+    "name": "Sneha Patel",
+    "role": "Participant, Sahi Manzil",
+    "text": "Sahi Manzil gave me the direction I needed for my career. The digital skills and presentation tips were exactly what I was missing.",
+    "avatar": "https://i.pravatar.cc/150?u=a04258a2462d826712d",
+    "is_active": true
+  },
+  {
+    "id": "3",
+    "name": "Amit Sharma",
+    "role": "School Teacher",
+    "text": "Samikaran's workshops are truly inspiring and practical. The students are so much more engaged and expressive now.",
+    "avatar": "https://i.pravatar.cc/150?u=a042581f4e29026704d",
+    "is_active": true
+  },
+  {
+    "id": "4",
+    "name": "Priya Singh",
+    "role": "ITI Graduate",
+    "text": "I had the technical skills, but Samikaran taught me how to communicate them. It made all the difference in my recent job interviews.",
+    "avatar": "https://i.pravatar.cc/150?u=a048581f4e29026701d",
+    "is_active": true
+  },
+  {
+    "id": "5",
+    "name": "Vikram Gupta",
+    "role": "Parent",
+    "text": "Seeing my son confidently participate in the workshop was a proud moment. The team truly knows how to bring out the best in children.",
+    "avatar": "https://i.pravatar.cc/150?u=a04258114e29026702d",
+    "is_active": true
+  },
+  {
+    "id": "6",
+    "name": "Anjali Verma",
+    "role": "Volunteer",
+    "text": "Volunteering here has been incredibly fulfilling. The impact is visible, and the approach is genuinely transformative for these kids.",
+    "avatar": "https://i.pravatar.cc/150?u=a04258114e29026302d",
+    "is_active": true
+  },
+  {
+    "id": "7",
+    "name": "Rahul Desai",
+    "role": "College Student",
+    "text": "The resume building session and mock interviews opened my eyes to modern workplace expectations. Highly recommended!",
+    "avatar": "https://i.pravatar.cc/150?u=a04258114e29026102d",
+    "is_active": true
+  },
+  {
+    "id": "8",
+    "name": "Kavita Rao",
+    "role": "NGO Partner",
+    "text": "Collaborating with Samikaran has been a breeze. Their dedication to bridging opportunity gaps is unmatched in the region.",
+    "avatar": "https://i.pravatar.cc/150?u=a04258114e29026502d",
+    "is_active": true
+  },
+  {
+    "id": "9",
+    "name": "Mohit Jain",
+    "role": "Student, Sahi Manzil",
+    "text": "I didn't know how to use Canva or AI tools before this. Now I help my friends with their projects. It's empowering.",
+    "avatar": "https://i.pravatar.cc/150?u=a04258114e29026802d",
+    "is_active": true
+  }
+]
