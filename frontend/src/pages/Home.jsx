@@ -11,7 +11,7 @@ import ImpactStats from '../components/sections/ImpactStats';
 import LiveProjects from '../components/sections/LiveProjects';
 import Testimonials from '../components/sections/Testimonials';
 import DepthBlurCarousel from '../components/sections/DepthBlurCarousel';
-import StackedCardCarousel from '../components/sections/StackedCardCarousel';
+import VelocityCarousel from '../components/sections/VelocityCarousel';
 
 const Home = () => {
   const [mediaItems, setMediaItems] = useState([]);
@@ -109,7 +109,7 @@ const Home = () => {
       <LiveProjects liveProjects={liveProjects} />
 
       {/* Moments Carousel Section — Stacked Card Parallax */}
-      <StackedCardCarousel items={mediaItems} onImageClick={(item, idx) => openModal(mediaItems[idx])} />
+      <VelocityCarousel items={mediaItems} onImageClick={(item, idx) => openModal(mediaItems[idx])} />
 
       {/* Playbook Event Modal */}
       <AnimatePresence>
